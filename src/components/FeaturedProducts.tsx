@@ -4,38 +4,38 @@ import { ProductCard } from "@/components/ProductCard"
 const featuredProducts = [
   {
     id: "1",
-    name: "SAGHTUM",
-    price: 282.20,
-    originalPrice: 329.99,
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    category: "Upholstered in soft woven fabric that brings a cozy feeling into your bedroom.",
+    name: "OXFORD CLASSIC",
+    price: 289.99,
+    originalPrice: 349.99,
+    image: "https://images.unsplash.com/photo-1614252369475-531eba7d2b5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhdGhlciUyMHNob2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Men's Handcrafted leather dress shoes with Goodyear welt construction for durability and elegance.",
     isBestSeller: true,
-    rating: 4
+    rating: 5
   },
   {
     id: "2",
-    name: "PANSAWR",
-    price: 450.00,
-    image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    category: "Bringing new life to an old favorite. We first introduced this chair in the 1950's.",
+    name: "MILANO LOAFERS",
+    price: 245.00,
+    image: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG9hZmVyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Italian full-grain leather penny loafers with hand-stitched details and leather soles.",
     isNewProduct: true,
     rating: 4
   },
   {
     id: "3",
-    name: "BIEAEW",
-    price: 3.99,
-    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVlbHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    category: "It is estimated that every five seconds, one BILLY bookcase is sold somewhere in the world.",
+    name: "LEATHER CARE KIT",
+    price: 79.99,
+    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZSUyMHBvbGlzaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Complete set of premium leather cleaning and conditioning products to maintain your fine footwear.",
     isNewProduct: true,
     rating: 5
   },
   {
     id: "4",
-    name: "KMOKK",
-    price: 228.50,
-    image: "https://images.unsplash.com/photo-1616406432452-07bc5938759d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bG9hZmVyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    category: "A simple and sturdy set that's perfect for your breakfast nook or smaller dining area.",
+    name: "CHELSEA BOOTS",
+    price: 319.50,
+    image: "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hlbHNlYSUyMGJvb3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Classic pull-on boots crafted from full-grain leather with elastic side panels and leather soles.",
     rating: 5
   }
 ]
@@ -45,9 +45,9 @@ export function FeaturedProducts() {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="border-b pb-4 mb-10">
-          <h2 className="text-3xl font-bold">Featured Products</h2>
+          <h2 className="text-3xl font-bold">Premium Leather Collection</h2>
           <p className="text-muted-foreground mt-2">
-            Ideas to help Bring Home to Life based on your recently viewed products. Share your space on Instagram and tag @BestFootForward
+            Handcrafted leather footwear and care products designed to last for generations. Each piece represents our commitment to quality craftsmanship.
           </p>
         </div>
 

@@ -2,7 +2,9 @@ import { Navbar } from "@/components/Navbar"
 import { HeroSection } from "@/components/HeroSection"
 import { FeaturedProducts } from "@/components/FeaturedProducts"
 import { CategoryShowcase } from "@/components/CategoryShowcase"
+import { RepairServices } from "@/components/RepairServices"
 import { MinimalSection } from "@/components/MinimalSection"
+import { BeforeAfter } from "@/components/BeforeAfter"
 import { Footer } from "@/components/Footer"
 
 export default function App() {
@@ -12,8 +14,10 @@ export default function App() {
       <main className="flex-1">
         <HeroSection />
         <FeaturedProducts />
-        <CategoryShowcase />
+        <RepairServices />
+        <BeforeAfter />
         <MinimalSection />
+        <CategoryShowcase />
       </main>
       <Footer />
     </div>
