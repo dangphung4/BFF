@@ -35,7 +35,7 @@ export function ProductCard({
           <Badge 
             className={`${isBestSeller ? 'bg-destructive' : 'bg-primary'} text-xs py-1 px-2 rounded-sm font-medium`}
           >
-            {isBestSeller ? 'best_sale' : 'new_product'}
+            {isBestSeller ? 'BEST SELLER' : 'NEW'}
           </Badge>
         </div>
       )}

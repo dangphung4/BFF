@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Menu, ShoppingBag, Heart, Search, X, ChevronDown } from "lucide-react"
+import { Menu, ShoppingBag, Heart, Search, X, ChevronDown, Moon, Sun } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -7,19 +7,19 @@ import { Link, useLocation } from "react-router-dom"
 
 const categories = [
   {
-    name: "Shop",
-    path: "/shop",
-    subcategories: ["Women", "Men", "Kids"]
-  },
-  {
-    name: "Repairs",
-    path: "/repair-services",
-    subcategories: ["Shoe Repair", "Leather Restoration", "Custom Leather", "Industrial Stitching", "Luggage Repair"]
-  },
-  {
-    name: "Before & After",
-    path: "/before-after",
+    name: "About Us",
+    path: "/about",
     subcategories: []
+  },
+  {
+    name: "Services",
+    path: "/services",
+    subcategories: ["Men", "Women", "Industrial Stitching", "Luggage Repair"]
+  },
+  {
+    name: "Products",
+    path: "/products",
+    subcategories: ["Leather Care Products", "Comfort Aids", "Custom Leather Goods"]
   },
   {
     name: "Testimonials",
@@ -27,13 +27,8 @@ const categories = [
     subcategories: []
   },
   {
-    name: "About",
-    path: "/about",
-    subcategories: []
-  },
-  {
-    name: "Contact",
-    path: "/contact",
+    name: "Before & After",
+    path: "/before-after",
     subcategories: []
   }
 ]
@@ -42,6 +37,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
   const location = useLocation()
 
   useEffect(() => {
@@ -53,12 +49,26 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    // Check if dark mode is already set
+    setIsDarkMode(document.documentElement.classList.contains('dark'))
+  }, [])
+
   const handleMouseEnter = (categoryName: string) => {
     setActiveDropdown(categoryName)
   }
 
   const handleMouseLeave = () => {
     setActiveDropdown(null)
+  }
+
+  const toggleTheme = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+    setIsDarkMode(!isDarkMode)
   }
 
   return (
@@ -133,6 +143,25 @@ export function Navbar() {
                         )}
                       </div>
                     ))}
+
+                    {/* Theme Toggle in Mobile Menu */}
+                    <div className="space-y-3">
+                      <h3 className="font-medium text-lg tracking-wide">Theme</h3>
+                      <button 
+                        onClick={toggleTheme}
+                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {isDarkMode ? (
+                          <>
+                            <Sun className="h-4 w-4" /> Light Mode
+                          </>
+                        ) : (
+                          <>
+                            <Moon className="h-4 w-4" /> Dark Mode
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </nav>
                 </div>
               </SheetContent>
@@ -148,9 +177,7 @@ export function Navbar() {
               {categories.map((category) => (
                 <li 
                   key={category.name}
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter(category.name)}
-                  onMouseLeave={handleMouseLeave}
+                  className="relative group"
                 >
                   <Link 
                     to={category.path} 
@@ -158,6 +185,7 @@ export function Navbar() {
                       "flex items-center py-4 font-medium hover:text-primary transition-colors",
                       location.pathname === category.path && "text-primary"
                     )}
+                    onMouseEnter={() => handleMouseEnter(category.name)}
                   >
                     {category.name}
                     {category.subcategories.length > 0 && (
@@ -166,8 +194,12 @@ export function Navbar() {
                   </Link>
 
                   {/* Dropdown Menu */}
-                  {category.subcategories.length > 0 && activeDropdown === category.name && (
-                    <div className="absolute left-0 mt-1 w-48 bg-background border rounded-md shadow-lg z-50">
+                  {category.subcategories.length > 0 && (
+                    <div 
+                      className={`absolute left-0 mt-1 w-48 bg-background border rounded-md shadow-lg z-50 transition-opacity duration-200 ${activeDropdown === category.name ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+                      onMouseEnter={() => handleMouseEnter(category.name)}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <ul className="py-2">
                         {category.subcategories.map((subcat) => (
                           <li key={subcat}>
@@ -188,7 +220,16 @@ export function Navbar() {
           </nav>
 
           {/* Action Icons */}
-          <div className="flex items-center gap-1 ml-auto">
+          <div className="flex items-center gap-2 ml-auto">
+            {/* Theme Toggle */}
+            <Button variant="ghost" size="icon" onClick={toggleTheme} className="hidden md:flex">
+              {isDarkMode ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
+            
             <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
               <Search className="h-5 w-5" />
             </Button>

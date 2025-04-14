@@ -4,17 +4,17 @@ const services = [
   {
     title: "Shoe Repair & Restoration",
     description: "Complete resole services, heel replacement, leather reconditioning, stretching, and custom dyeing for all types of footwear.",
-    image: "https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNob2UlMjByZXBhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+    image: "https://i.imgur.com/qN8wvTq.jpg"
   },
   {
     title: "Leather Goods Repair",
     description: "Expert restoration of handbags, jackets, wallets and other leather accessories. Services include zipper replacement, color restoration, and structural repairs.",
-    image: "https://images.unsplash.com/photo-1531010056129-33a1b2f1c4ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGxlYXRoZXIlMjBiYWd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+    image: "https://i.imgur.com/DTVT3KH.jpg"
   },
   {
     title: "Custom Leather Crafting",
     description: "Bespoke leather items handcrafted to your specifications. From belts and wallets to custom shoe designs and specialty items.",
-    image: "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGVhdGhlciUyMGNyYWZ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    image: "https://i.imgur.com/7EQ8nv2.jpg"
   }
 ]
 
@@ -99,7 +99,7 @@ export function RepairServices() {
             <div className="relative">
               <div className="absolute -top-6 -left-6 w-40 h-40 bg-primary/10 rounded-full -z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1556115419-5a539f9af785?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGxlYXRoZXIlMjBzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" 
+                src="https://i.imgur.com/j5eUVST.jpg" 
                 alt="Leather workshop" 
                 className="rounded-lg shadow-lg w-full h-auto"
               />

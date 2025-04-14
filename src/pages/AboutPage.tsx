@@ -21,7 +21,7 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold mb-4">Our Story</h2>
             <p className="text-muted-foreground mb-4">
-              Best Foot Forward was founded in 2003 by master craftsman Michael Roberts, who learned the 
+              Best Foot Forward was founded in 2003 by master craftsman Wilfred Lopez, who learned the 
               art of leather working and shoe repair from his father and grandfather. What began as a small 
               repair shop has grown into Alexandria's most trusted destination for all leather care and repair needs.
             </p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-40 h-40 bg-primary/10 rounded-full -z-10"></div>
             <img 
-              src="https://images.unsplash.com/photo-1621416894569-0f39ed31d247?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGxlYXRoZXIlMjBzaG9wfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" 
+              src="https://i.imgur.com/j5eUVST.jpg" 
               alt="Our workshop" 
               className="rounded-lg shadow-lg"
             />
@@ -84,41 +84,41 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60" 
-                alt="Michael Roberts" 
+                src="https://i.imgur.com/vYLUuAE.jpg" 
+                alt="Wilfred Lopez" 
                 className="rounded-full w-32 h-32 object-cover mx-auto mb-4"
               />
-              <h3 className="font-bold">Michael Roberts</h3>
+              <h3 className="font-bold">Wilfred Lopez</h3>
               <p className="text-sm text-muted-foreground">Founder & Master Craftsman</p>
             </div>
             
             <div className="text-center">
               <img 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60" 
-                alt="Sarah Johnson" 
+                src="https://i.imgur.com/vYLUuAE.jpg" 
+                alt="Wilfred Lopez" 
                 className="rounded-full w-32 h-32 object-cover mx-auto mb-4"
               />
-              <h3 className="font-bold">Sarah Johnson</h3>
+              <h3 className="font-bold">Wilfred Lopez</h3>
               <p className="text-sm text-muted-foreground">Lead Leather Artisan</p>
             </div>
             
             <div className="text-center">
               <img 
-                src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=300&q=60" 
-                alt="David Chen" 
+                src="https://i.imgur.com/vYLUuAE.jpg" 
+                alt="Wilfred Lopez" 
                 className="rounded-full w-32 h-32 object-cover mx-auto mb-4"
               />
-              <h3 className="font-bold">David Chen</h3>
+              <h3 className="font-bold">Wilfred Lopez</h3>
               <p className="text-sm text-muted-foreground">Shoe Repair Specialist</p>
             </div>
             
             <div className="text-center">
               <img 
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60" 
-                alt="Lisa Martinez" 
+                src="https://i.imgur.com/vYLUuAE.jpg" 
+                alt="Wilfred Lopez" 
                 className="rounded-full w-32 h-32 object-cover mx-auto mb-4"
               />
-              <h3 className="font-bold">Lisa Martinez</h3>
+              <h3 className="font-bold">Wilfred Lopez</h3>
               <p className="text-sm text-muted-foreground">Custom Design Specialist</p>
             </div>
           </div>

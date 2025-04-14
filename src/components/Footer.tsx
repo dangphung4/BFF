@@ -2,26 +2,29 @@ import { Separator } from "@/components/ui/separator"
 import { Facebook, Instagram, Mail, Clock, MapPin, Phone } from "lucide-react"
 import { Link } from "react-router-dom"
 
-const shopLinks = [
-  { name: "Women", path: "/shop#women" },
-  { name: "Men", path: "/shop#men" },
-  { name: "Industrial Stitching", path: "/repair-services#industrial-stitching" },
-  { name: "Luggage Repair", path: "/repair-services#luggage-repair" },
-  { name: "Leather Care Products", path: "/shop#leather-care-products" }
-]
-
-const serviceLinks = [
-  { name: "Comfort Aids", path: "/repair-services#comfort-aids" },
-  { name: "Custom Leather Goods", path: "/repair-services#custom-leather-goods" },
-  { name: "Testimonials", path: "/testimonials" },
-  { name: "Before and Afters", path: "/before-after" }
-]
-
-const companyLinks = [
-  { name: "Home", path: "/" },
+const aboutLinks = [
   { name: "About Us", path: "/about" },
   { name: "Our Story", path: "/about#our-story" },
   { name: "Contact", path: "/contact" }
+]
+
+const serviceLinks = [
+  { name: "Men", path: "/services#men" },
+  { name: "Women", path: "/services#women" },
+  { name: "Industrial Stitching", path: "/services#industrial-stitching" },
+  { name: "Luggage Repair", path: "/services#luggage-repair" }
+]
+
+const productLinks = [
+  { name: "Leather Care Products", path: "/products#leather-care-products" },
+  { name: "Comfort Aids", path: "/products#comfort-aids" },
+  { name: "Custom Leather Goods", path: "/products#custom-leather-goods" }
+]
+
+const featuredLinks = [
+  { name: "Home", path: "/" },
+  { name: "Testimonials", path: "/testimonials" },
+  { name: "Before & After", path: "/before-after" }
 ]
 
 export function Footer() {
@@ -31,9 +34,9 @@ export function Footer() {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
           <div className="space-y-6">
-            <h3 className="font-medium text-lg">Shop</h3>
+            <h3 className="font-medium text-lg">About</h3>
             <ul className="space-y-3">
-              {shopLinks.map((link) => (
+              {aboutLinks.map((link) => (
                 <li key={link.name}>
                   <Link to={link.path} className="text-muted-foreground hover:text-foreground transition-colors">
                     {link.name}
@@ -57,9 +60,20 @@ export function Footer() {
           </div>
           
           <div className="space-y-6">
-            <h3 className="font-medium text-lg">About Us</h3>
+            <h3 className="font-medium text-lg">Products</h3>
             <ul className="space-y-3">
-              {companyLinks.map((link) => (
+              {productLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="font-medium text-lg">Featured</h3>
+            <ul className="space-y-3">
+              {featuredLinks.map((link) => (
                 <li key={link.name}>
                   <Link to={link.path} className="text-muted-foreground hover:text-foreground transition-colors">
                     {link.name}

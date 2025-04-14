@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import "./index.css"
 import App from "./App.tsx"
 import HomePage from "./pages/HomePage.tsx"
-import ShopPage from "./pages/ShopPage.tsx"
-import RepairPage from "./pages/RepairPage.tsx"
+import ServicesPage from "./pages/ServicesPage.tsx"
+import ProductsPage from "./pages/ProductsPage.tsx"
 import BeforeAfterPage from "./pages/BeforeAfterPage.tsx"
 import TestimonialsPage from "./pages/TestimonialsPage.tsx"
 import AboutPage from "./pages/AboutPage.tsx"
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "shop", element: <ShopPage /> },
-      { path: "repair-services", element: <RepairPage /> },
+      { path: "services", element: <ServicesPage /> },
+      { path: "products", element: <ProductsPage /> },
       { path: "before-after", element: <BeforeAfterPage /> },
       { path: "testimonials", element: <TestimonialsPage /> },
       { path: "about", element: <AboutPage /> },
