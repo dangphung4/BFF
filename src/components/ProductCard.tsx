@@ -1,14 +1,6 @@
-import { Heart, ShoppingCart } from "lucide-react"
+import { ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card"
 
 interface ProductCardProps {
   id: string
@@ -19,6 +11,8 @@ interface ProductCardProps {
   category: string
   isNew?: boolean
   rating?: number
+  isBestSeller?: boolean
+  isNewProduct?: boolean
 }
 
 export function ProductCard({
@@ -30,74 +24,65 @@ export function ProductCard({
   category,
   isNew = false,
   rating = 0,
+  isBestSeller = false,
+  isNewProduct = false
 }: ProductCardProps) {
-  const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0
-  
   return (
-    <Card className="group overflow-hidden border border-border">
-      <div className="relative">
-        {/* Product Image */}
-        <div className="aspect-square overflow-hidden bg-secondary/20">
-          <img 
-            src={image} 
-            alt={name}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+    <div className="group relative">
+      {/* Product Badge */}
+      {(isBestSeller || isNewProduct) && (
+        <div className="absolute top-3 left-3 z-10">
+          <Badge 
+            className={`${isBestSeller ? 'bg-destructive' : 'bg-primary'} text-xs py-1 px-2 rounded-sm font-medium`}
+          >
+            {isBestSeller ? 'best_sale' : 'new_product'}
+          </Badge>
         </div>
+      )}
+      
+      {/* Product Image */}
+      <div className="relative aspect-square overflow-hidden bg-accent/5 mb-3">
+        <img 
+          src={image} 
+          alt={name}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
         
-        {/* Quick Actions */}
-        <div className="absolute right-2 top-2 flex flex-col gap-2">
-          <Button size="icon" variant="secondary" className="h-8 w-8 rounded-full opacity-70 hover:opacity-100">
-            <Heart className="h-4 w-4" />
+        {/* Quick Add Overlay - Shown on Hover */}
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Button variant="secondary" size="sm" className="gap-2">
+            <ShoppingCart className="h-4 w-4" />
+            Add to Cart
           </Button>
-        </div>
-        
-        {/* Badges */}
-        <div className="absolute left-2 top-2 flex flex-col gap-1">
-          {isNew && (
-            <Badge className="bg-primary text-primary-foreground">New</Badge>
-          )}
-          {discount > 0 && (
-            <Badge variant="destructive">{discount}% OFF</Badge>
-          )}
         </div>
       </div>
       
-      <CardHeader className="p-4 pb-0">
-        <CardDescription className="text-xs uppercase tracking-wider">
-          {category}
-        </CardDescription>
-        <CardTitle className="text-base font-medium leading-tight mt-1">
-          {name}
-        </CardTitle>
-      </CardHeader>
-      
-      <CardContent className="p-4 pt-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="font-bold">${price.toFixed(2)}</span>
-            {originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                ${originalPrice.toFixed(2)}
-              </span>
-            )}
-          </div>
-          
-          {rating > 0 && (
-            <div className="flex items-center text-sm">
-              <span className="text-yellow-500">★</span>
-              <span className="ml-1 font-medium">{rating.toFixed(1)}</span>
-            </div>
+      {/* Product Info */}
+      <div className="space-y-1">
+        <h3 className="text-xl font-bold tracking-tight uppercase">{name}</h3>
+        <p className="text-sm text-muted-foreground">{category}</p>
+        <div className="flex items-center gap-2">
+          <span className="font-medium">${price.toFixed(2)}</span>
+          {originalPrice && (
+            <span className="text-sm text-muted-foreground line-through">
+              ${originalPrice.toFixed(2)}
+            </span>
           )}
         </div>
-      </CardContent>
-      
-      <CardFooter className="p-4 pt-0">
-        <Button className="w-full gap-2">
-          <ShoppingCart className="h-4 w-4" />
-          Add to Cart
-        </Button>
-      </CardFooter>
-    </Card>
+        
+        {rating > 0 && (
+          <div className="flex items-center">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span 
+                key={i} 
+                className={`text-xs ${i < Math.floor(rating) ? 'text-foreground' : 'text-muted-foreground'}`}
+              >
+                ★
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   )
 } 

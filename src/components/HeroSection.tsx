@@ -2,37 +2,38 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative py-12 md:py-20 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="max-w-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-              Step Into <span className="text-primary">Comfort</span> & Style
-            </h1>
-            <p className="text-lg text-muted-foreground mb-8">
-              Discover our handpicked collection of premium footwear designed for comfort, style, and durability. From everyday essentials to statement pieces.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="text-md px-8">Shop Men</Button>
-              <Button size="lg" variant="outline" className="text-md px-8">Shop Women</Button>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-square rounded-full bg-primary/10 absolute -right-20 -top-20 w-72 h-72 z-0"></div>
-            <div className="aspect-square rounded-full bg-secondary/20 absolute -left-10 -bottom-10 w-60 h-60 z-0"></div>
-            <div className="relative z-10">
-              <div className="shadow-2xl rounded-lg overflow-hidden bg-card">
-                <img 
-                  src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c25lYWtlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" 
-                  alt="Featured shoe collection"
-                  className="w-full h-auto object-cover aspect-[4/3]"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
-                <p className="text-sm font-medium">Limited Edition</p>
-                <p className="text-2xl font-bold">30% OFF</p>
-              </div>
-            </div>
+    <section className="relative w-full h-[90vh] overflow-hidden">
+      <div className="absolute inset-0 bg-black/10 z-10"></div>
+      
+      {/* Hero Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHNuZWFrZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+          alt="Featured premium shoes"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Brand Label */}
+      <div className="absolute top-10 left-10 z-20">
+        <span className="text-sm font-medium tracking-widest uppercase text-white">Best Foot Forward</span>
+      </div>
+      
+      {/* Hero Content */}
+      <div className="absolute inset-0 flex flex-col justify-end z-20 p-10 md:p-20">
+        <div className="max-w-2xl">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
+            Utilized with<br />
+            Premium Design
+          </h1>
+          
+          <div className="flex gap-4">
+            <Button size="lg" variant="default" className="bg-white text-black hover:bg-white/90">
+              New In
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              View the Collection
+            </Button>
           </div>
         </div>
       </div>
