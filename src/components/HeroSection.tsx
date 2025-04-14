@@ -28,11 +28,14 @@ export function HeroSection() {
           </h1>
           
           <div className="flex gap-4">
-            <Button size="lg" variant="default" className="bg-white text-black hover:bg-white/90">
+            <Button size="lg" variant="default" className="bg-white text-black hover:bg-white/90 px-8 rounded-md">
               New In
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              View the Collection
+            <Button 
+              size="lg" 
+              className="bg-transparent border border-white text-white hover:bg-white/10 rounded-md px-8 transition-colors"
+            >
+              View The Collection
             </Button>
           </div>
         </div>
