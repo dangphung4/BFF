@@ -16,13 +16,11 @@ interface ProductCardProps {
 }
 
 export function ProductCard({
-  id,
   name,
   price,
   originalPrice,
   image,
   category,
-  isNew = false,
   rating = 0,
   isBestSeller = false,
   isNewProduct = false
