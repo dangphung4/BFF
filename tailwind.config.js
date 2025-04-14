@@ -5,8 +5,8 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			sans: ['IBM Plex Mono', 'monospace'],
-  			mono: ['IBM Plex Mono', 'monospace'],
+  			sans: ['Inter Tight', 'sans-serif'],
+  			mono: ['Inter Tight', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
