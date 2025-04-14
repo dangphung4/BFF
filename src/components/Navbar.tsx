@@ -18,6 +18,10 @@ const categories = [
     subcategories: ["School", "Sports", "Casual", "Toddler"]
   },
   {
+    name: "Repairs",
+    subcategories: ["Shoe Repair", "Leather Restoration", "Custom Leather", "Industrial Stitching", "Luggage Repair"]
+  },
+  {
     name: "New",
     subcategories: []
   },

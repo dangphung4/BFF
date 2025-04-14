@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button"
 export function HeroSection() {
   return (
     <section className="relative w-full h-[90vh] overflow-hidden">
-      <div className="absolute inset-0 bg-black/10 z-10"></div>
+      <div className="absolute inset-0 bg-black/20 z-10"></div>
       
       {/* Hero Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHNuZWFrZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-          alt="Featured premium shoes"
+          src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80" 
+          alt="Premium leather shoes craftsmanship"
           className="w-full h-full object-cover"
         />
       </div>
@@ -22,14 +22,16 @@ export function HeroSection() {
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col justify-end z-20 p-10 md:p-20">
         <div className="max-w-2xl">
+          <p className="text-xl text-white/90 mb-2">Handcrafted Leather & Expert Repairs</p>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
-            Utilized with<br />
-            Premium Design
+            Craftsmanship<br />
+            That Endures
           </h1>
+          <p className="text-lg text-white/80 mb-6">"Because all shoes are not created equal"</p>
           
           <div className="flex gap-4">
             <Button size="lg" variant="default" className="bg-white text-black hover:bg-white/90 px-8 rounded-md">
-              New In
+              Shop Leather
             </Button>
             <Button 
               size="lg" 
