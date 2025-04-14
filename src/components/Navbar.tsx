@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react"
-import { Menu, ShoppingBag, Heart, Search, X, ChevronDown, Moon, Sun } from "lucide-react"
+import { Menu, ShoppingBag, Heart, Search, X, ChevronDown, Moon, Sun, User, LogOut } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Link, useLocation } from "react-router-dom"
+import { useUser, useIsAdmin } from "@/auth/auth-hooks"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const categories = [
   {
@@ -39,6 +48,8 @@ export function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(true)
   const location = useLocation()
+  const { user, isAuthenticated, isLoading, login, logout } = useUser()
+  const isAdmin = useIsAdmin()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -144,6 +155,15 @@ export function Navbar() {
                       </div>
                     ))}
 
+                    {/* Admin Dashboard Link (Mobile) */}
+                    {isAuthenticated && isAdmin && (
+                      <div className="space-y-3">
+                        <h3 className="font-medium text-lg tracking-wide">
+                          <Link to="/admin/dashboard">Admin Dashboard</Link>
+                        </h3>
+                      </div>
+                    )}
+
                     {/* Theme Toggle in Mobile Menu */}
                     <div className="space-y-3">
                       <h3 className="font-medium text-lg tracking-wide">Theme</h3>
@@ -161,6 +181,29 @@ export function Navbar() {
                           </>
                         )}
                       </button>
+                    </div>
+
+                    {/* Auth Actions in Mobile Menu */}
+                    <div className="space-y-3">
+                      <h3 className="font-medium text-lg tracking-wide">Account</h3>
+                      {isAuthenticated ? (
+                        <div className="space-y-2 pl-2">
+                          <p className="text-sm text-muted-foreground">{user?.name || user?.email}</p>
+                          <button 
+                            onClick={() => logout()}
+                            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            <LogOut className="h-4 w-4" /> Sign Out
+                          </button>
+                        </div>
+                      ) : (
+                        <button 
+                          onClick={() => login()}
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          <User className="h-4 w-4" /> Sign In
+                        </button>
+                      )}
                     </div>
                   </nav>
                 </div>
@@ -216,6 +259,21 @@ export function Navbar() {
                   )}
                 </li>
               ))}
+
+              {/* Admin Dashboard Link */}
+              {isAuthenticated && isAdmin && (
+                <li className="relative">
+                  <Link 
+                    to="/admin/dashboard" 
+                    className={cn(
+                      "flex items-center py-4 font-medium hover:text-primary transition-colors",
+                      location.pathname.startsWith('/admin') && "text-primary"
+                    )}
+                  >
+                    Admin
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
 
@@ -239,9 +297,53 @@ export function Navbar() {
             <Button variant="ghost" size="icon">
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="hidden md:flex ml-2">
-              Sign in or Sign up
-            </Button>
+
+            {/* Auth Button / Profile Menu */}
+            {isLoading ? (
+              <div className="h-9 w-9 rounded-full bg-muted animate-pulse" />
+            ) : isAuthenticated ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="rounded-full overflow-hidden">
+                    {user?.picture ? (
+                      <img 
+                        src={user.picture} 
+                        alt={user?.name || "User"} 
+                        className="h-8 w-8 rounded-full object-cover"
+                      />
+                    ) : (
+                      <User className="h-5 w-5" />
+                    )}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuLabel>{user?.name || user?.email}</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {isAdmin && (
+                    <DropdownMenuItem asChild>
+                      <Link to="/admin/dashboard">Dashboard</Link>
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile">Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => logout()}>
+                    <LogOut className="h-4 w-4 mr-2" />
+                    <span>Sign out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="hidden md:flex ml-2"
+                onClick={() => login()}
+              >
+                Sign in
+              </Button>
+            )}
           </div>
         </div>
       </div>
