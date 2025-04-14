@@ -1,0 +1,74 @@
+{
+  "name": "ecommerce-site",
+  "description": "Cursor coding rules for a Vite + React + Shadcn + Tailwind + Strapi-ready e-commerce application.",
+  "rules": [
+    {
+      "title": "Code Style & Structure",
+      "details": [
+        "Use functional components and declarative code; avoid class components.",
+        "Structure code in vertical slices: feature-based directories containing component, types, helpers, tests.",
+        "Use descriptive camelCase names with auxiliary verbs (e.g., isLoading, hasPermission).",
+        "Avoid code duplication; extract logic into pure helper functions.",
+        "Separate types, static content, subcomponents, and business logic."
+      ]
+    },
+    {
+      "title": "TypeScript Usage",
+      "details": [
+        "Use TypeScript for all files.",
+        "Prefer `interface` over `type` unless unions or advanced features are needed.",
+        "Avoid enums; use `Record` maps or union types.",
+        "Strictly type all props, returns, and async functions."
+      ]
+    },
+    {
+      "title": "UI & Styling",
+      "details": [
+        "Use TailwindCSS for styling; follow mobile-first and responsive patterns.",
+        "Use Shadcn UI and Radix UI components; customize with Tailwind.",
+        "Define theme colors using `tailwind.config.ts`:",
+        "• lion: #AF9164",
+        "• cosmicLatte: #F7F3E3",
+        "• silver: #B3B6B7",
+        "• barnRed: #6F1A07",
+        "• bistre: #2B2118",
+        "Allow theme colors to be swapped via Strapi (CMS-driven theming)."
+      ]
+    },
+    {
+      "title": "Performance Optimization",
+      "details": [
+        "Use React.Suspense with fallbacks around client-side components.",
+        "Use dynamic import() for non-critical components and dashboards.",
+        "Optimize all images using WebP and include width/height.",
+        "Implement lazy loading for heavy components and assets."
+      ]
+    },
+    {
+      "title": "Authentication & Authorization",
+      "details": [
+        "Set up role-based access control (RBAC): Admin, Staff, Customer.",
+        "Protect routes and pages based on user roles and permissions.",
+        "Dashboard should show/hide sections dynamically based on role."
+      ]
+    },
+    {
+      "title": "Strapi Compatibility",
+      "details": [
+        "Plan content types and fields to match Strapi schemas.",
+        "Make UI blocks flexible for future dynamic rendering (via JSON or CMS layouts).",
+        "Avoid hardcoded UI structures; support slot-based composition.",
+        "All user-customizable settings (colors, labels, steps) should eventually sync from Strapi."
+      ]
+    },
+    {
+      "title": "Best Practices",
+      "details": [
+        "Follow React.js official docs for data fetching, rendering, and routing.",
+        "Use Suspense + React Router with deferred loading.",
+        "Add tests for business logic using Vitest or Jest.",
+        "Lint using ESLint + Prettier with strict rules (e.g., import/order, no unused vars)."
+      ]
+    }
+  ]
+}
