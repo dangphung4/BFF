@@ -1,10 +1,11 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { Facebook, Instagram, Mail, Clock, MapPin, Phone } from "lucide-react"
 
-const shopLinks = ["Furniture", "Lighting", "Rugs", "New", "Sale"]
-const customerLinks = ["Shipping & Returns", "Store Policy", "Payment Methods", "FAQ"]
-const companyLinks = ["Our Story", "Brands & Designers", "Stores", "Contact"]
+const shopLinks = ["Women", "Men", "Industrial Stitching", "Luggage Repair", "Leather Care Products"]
+const serviceLinks = ["Comfort Aids", "Custom Leather Goods", "Testimonials", "Before and Afters"]
+const companyLinks = ["Home", "About Us", "Our Story", "Contact"]
 
 export function Footer() {
   return (
@@ -17,7 +18,7 @@ export function Footer() {
             <ul className="space-y-3">
               {shopLinks.map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-muted-foreground hover:text-foreground transition-colors">
+                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-muted-foreground hover:text-foreground transition-colors">
                     {link}
                   </a>
                 </li>
@@ -26,9 +27,9 @@ export function Footer() {
           </div>
           
           <div className="space-y-6">
-            <h3 className="font-medium text-lg">Customer Service</h3>
+            <h3 className="font-medium text-lg">Services</h3>
             <ul className="space-y-3">
-              {customerLinks.map((link) => (
+              {serviceLinks.map((link) => (
                 <li key={link}>
                   <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-muted-foreground hover:text-foreground transition-colors">
                     {link}
@@ -39,7 +40,7 @@ export function Footer() {
           </div>
           
           <div className="space-y-6">
-            <h3 className="font-medium text-lg">About BEST FOOT FORWARD</h3>
+            <h3 className="font-medium text-lg">About Us</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link}>
@@ -52,14 +53,35 @@ export function Footer() {
           </div>
           
           <div className="space-y-6">
-            <h3 className="font-medium text-lg">Sign up to Our Newsletter</h3>
-            <div className="flex">
-              <Input 
-                type="email" 
-                placeholder="Email*" 
-                className="rounded-r-none focus-visible:ring-0"
-              />
-              <Button className="rounded-l-none">Submit</Button>
+            <h3 className="font-medium text-lg">Hours & Info</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">3686 King St. Alexandria, VA 22302</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">(703)-413-0444</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">bffshoerepair@gmail.com</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground">Monday - Saturday: 9am-7pm<br />Sunday: Closed</span>
+              </li>
+            </ul>
+
+            <h3 className="font-medium text-lg mt-8">Follow Us</h3>
+            <div className="flex gap-4">
+              <a href="#facebook" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#instagram" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <span className="text-sm text-muted-foreground">@_bestfootforward</span>
             </div>
           </div>
         </div>
@@ -68,13 +90,13 @@ export function Footer() {
         
         <div className="text-center text-sm text-muted-foreground">
           <div className="mb-2">
-            <span className="font-medium text-foreground">BEST FOOT FORWARD</span>
+            <span className="font-medium text-foreground">"Because all shoes are not created equal"</span>
           </div>
           <div className="mb-4">
-            123 Fashion Street, Design District, New York, NY 10001
+            Shoe & Leather Care plus Leather custom-Crafts
           </div>
           <div>
-            +1 (555) 123-4567 / contact@bestfootforward.com
+            © {new Date().getFullYear()} Best Foot Forward. All rights reserved.
           </div>
         </div>
       </div>
