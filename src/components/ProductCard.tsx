@@ -54,7 +54,7 @@ export function ProductCard({
           </Button>
         </div>
       </div>
-      
+
       {/* Product Info */}
       <div className="space-y-1">
         <h3 className="text-xl font-bold tracking-tight uppercase">{name}</h3>
