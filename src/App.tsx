@@ -5,6 +5,7 @@ import { CategoryShowcase } from "@/components/CategoryShowcase"
 import { RepairServices } from "@/components/RepairServices"
 import { MinimalSection } from "@/components/MinimalSection"
 import { BeforeAfter } from "@/components/BeforeAfter"
+import { TestimonialSection } from "@/components/TestimonialSection"
 import { Footer } from "@/components/Footer"
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <FeaturedProducts />
         <RepairServices />
         <BeforeAfter />
+        <TestimonialSection />
         <MinimalSection />
         <CategoryShowcase />
       </main>
