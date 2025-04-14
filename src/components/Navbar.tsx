@@ -3,30 +3,37 @@ import { Menu, ShoppingBag, Heart, Search, X, ChevronDown } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { Link, useLocation } from "react-router-dom"
 
 const categories = [
   {
-    name: "Men",
-    subcategories: ["Running", "Basketball", "Casual", "Formal"]
-  },
-  {
-    name: "Women",
-    subcategories: ["Running", "Lifestyle", "Heels", "Sandals"]
-  },
-  {
-    name: "Kids",
-    subcategories: ["School", "Sports", "Casual", "Toddler"]
+    name: "Shop",
+    path: "/shop",
+    subcategories: ["Women", "Men", "Kids"]
   },
   {
     name: "Repairs",
+    path: "/repair-services",
     subcategories: ["Shoe Repair", "Leather Restoration", "Custom Leather", "Industrial Stitching", "Luggage Repair"]
   },
   {
-    name: "New",
+    name: "Before & After",
+    path: "/before-after",
     subcategories: []
   },
   {
-    name: "Sale",
+    name: "Testimonials",
+    path: "/testimonials",
+    subcategories: []
+  },
+  {
+    name: "About",
+    path: "/about",
+    subcategories: []
+  },
+  {
+    name: "Contact",
+    path: "/contact",
     subcategories: []
   }
 ]
@@ -35,6 +42,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,18 +115,18 @@ export function Navbar() {
                     {categories.map((category) => (
                       <div key={category.name} className="space-y-3">
                         <h3 className="font-medium text-lg tracking-wide">
-                          <a href={`#${category.name.toLowerCase()}`}>{category.name}</a>
+                          <Link to={category.path}>{category.name}</Link>
                         </h3>
                         {category.subcategories.length > 0 && (
                           <ul className="space-y-2 pl-2">
                             {category.subcategories.map((subcat) => (
                               <li key={subcat}>
-                                <a 
-                                  href={`#${category.name.toLowerCase()}-${subcat.toLowerCase().replace(' ', '-')}`}
+                                <Link 
+                                  to={`${category.path}#${subcat.toLowerCase().replace(' ', '-')}`}
                                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                   {subcat}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -132,7 +140,7 @@ export function Navbar() {
           </div>
 
           {/* Logo */}
-          <a href="/" className="text-xl font-bold tracking-wide uppercase ml-4 md:ml-0">Best Foot Forward</a>
+          <Link to="/" className="text-xl font-bold tracking-wide uppercase ml-4 md:ml-0">Best Foot Forward</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-1 justify-center">
@@ -144,15 +152,18 @@ export function Navbar() {
                   onMouseEnter={() => handleMouseEnter(category.name)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <a 
-                    href={`#${category.name.toLowerCase()}`} 
-                    className="flex items-center py-4 font-medium hover:text-primary transition-colors"
+                  <Link 
+                    to={category.path} 
+                    className={cn(
+                      "flex items-center py-4 font-medium hover:text-primary transition-colors",
+                      location.pathname === category.path && "text-primary"
+                    )}
                   >
                     {category.name}
                     {category.subcategories.length > 0 && (
                       <ChevronDown className="ml-1 h-4 w-4" />
                     )}
-                  </a>
+                  </Link>
 
                   {/* Dropdown Menu */}
                   {category.subcategories.length > 0 && activeDropdown === category.name && (
@@ -160,12 +171,12 @@ export function Navbar() {
                       <ul className="py-2">
                         {category.subcategories.map((subcat) => (
                           <li key={subcat}>
-                            <a 
-                              href={`#${category.name.toLowerCase()}-${subcat.toLowerCase().replace(' ', '-')}`}
+                            <Link 
+                              to={`${category.path}#${subcat.toLowerCase().replace(' ', '-')}`}
                               className="block px-4 py-2 text-sm hover:bg-muted/50 transition-colors"
                             >
                               {subcat}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>

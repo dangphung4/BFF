@@ -1,9 +1,28 @@
 import { Separator } from "@/components/ui/separator"
 import { Facebook, Instagram, Mail, Clock, MapPin, Phone } from "lucide-react"
+import { Link } from "react-router-dom"
 
-const shopLinks = ["Women", "Men", "Industrial Stitching", "Luggage Repair", "Leather Care Products"]
-const serviceLinks = ["Comfort Aids", "Custom Leather Goods", "Testimonials", "Before and Afters"]
-const companyLinks = ["Home", "About Us", "Our Story", "Contact"]
+const shopLinks = [
+  { name: "Women", path: "/shop#women" },
+  { name: "Men", path: "/shop#men" },
+  { name: "Industrial Stitching", path: "/repair-services#industrial-stitching" },
+  { name: "Luggage Repair", path: "/repair-services#luggage-repair" },
+  { name: "Leather Care Products", path: "/shop#leather-care-products" }
+]
+
+const serviceLinks = [
+  { name: "Comfort Aids", path: "/repair-services#comfort-aids" },
+  { name: "Custom Leather Goods", path: "/repair-services#custom-leather-goods" },
+  { name: "Testimonials", path: "/testimonials" },
+  { name: "Before and Afters", path: "/before-after" }
+]
+
+const companyLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Our Story", path: "/about#our-story" },
+  { name: "Contact", path: "/contact" }
+]
 
 export function Footer() {
   return (
@@ -15,10 +34,10 @@ export function Footer() {
             <h3 className="font-medium text-lg">Shop</h3>
             <ul className="space-y-3">
               {shopLinks.map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-muted-foreground hover:text-foreground transition-colors">
-                    {link}
-                  </a>
+                <li key={link.name}>
+                  <Link to={link.path} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -28,10 +47,10 @@ export function Footer() {
             <h3 className="font-medium text-lg">Services</h3>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-muted-foreground hover:text-foreground transition-colors">
-                    {link}
-                  </a>
+                <li key={link.name}>
+                  <Link to={link.path} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -41,10 +60,10 @@ export function Footer() {
             <h3 className="font-medium text-lg">About Us</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-muted-foreground hover:text-foreground transition-colors">
-                    {link}
-                  </a>
+                <li key={link.name}>
+                  <Link to={link.path} className="text-muted-foreground hover:text-foreground transition-colors">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -73,10 +92,10 @@ export function Footer() {
 
             <h3 className="font-medium text-lg mt-8">Follow Us</h3>
             <div className="flex gap-4">
-              <a href="#facebook" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#instagram" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <span className="text-sm text-muted-foreground">@_bestfootforward</span>
